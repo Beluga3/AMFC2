@@ -227,5 +227,25 @@ namespace AMFC2
             List<float[]> unpacked = UDPunpackAll(fullUdp);
             enterAllDataValues(unpacked);
         }
+
+        public void simulateSytemTestdata() //alleen voor testen van software, dus zonder verbinding met xplane
+        {
+            Random random = new Random();
+            float[] valueSpeed = { float.Parse("3"), float.Parse(random.Next(1, 250).ToString()), 0, 0, float.Parse(random.Next(1, 250).ToString())}; //speed gebruikt 0, 1 en 4
+            float[] machVertical = { float.Parse("4"), float.Parse(random.NextDouble().ToString()), float.Parse(random.Next(-2000, 2000).ToString())}; //mach-vvi gebruikt 0, 1 en 2
+            float[] weather = { float.Parse("5"), 0, 0, float.Parse(random.Next(0, 20).ToString()), float.Parse(random.Next(0, 359).ToString())};//weather gebruikt 0, 3 en 4
+            float[] controls = { float.Parse("11"), float.Parse(random.Next(-50, 50).ToString()), float.Parse(random.Next(-50, 50).ToString()), float.Parse(random.Next(-50, 50).ToString()), float.Parse(random.Next(-50, 50).ToString())};//flightcontrols gebruikt 1, 2, 3 en 4
+            float[] flapsBrakes = { float.Parse("13"), 0, 0, 0, 0, float.Parse(random.Next(0, 100).ToString()), 0, 0, float.Parse(random.Next(0, 100).ToString()) }; //0, 5 en 8
+            float[] heading = { float.Parse("17"), 0, 0, 0, float.Parse(random.Next(0, 395).ToString()) }; // 4
+            float[] latlonalt = { float.Parse("20"), float.Parse(random.Next(-90, 90).ToString()), float.Parse(random.Next(-90, 90).ToString()), float.Parse(random.Next(500, 35000).ToString()) }; //0, 1, 2 en 3
+            float[] throttle = { float.Parse("25"), float.Parse(random.Next(0, 100).ToString()) }; //0 en 1
+            float[] coms = { float.Parse("96"), float.Parse(random.Next(101, 129).ToString()), float.Parse(random.Next(101, 129).ToString()) }; //0, 1 en 2
+            float[] navs = { float.Parse("97"), float.Parse(random.Next(101, 129).ToString()), float.Parse(random.Next(101, 129).ToString()) }; //0, 1 en 2
+            float[] navobs = { float.Parse("98"), float.Parse(random.Next(0, 10).ToString()) }; //0 en 1
+            float[] transponder = { float.Parse("104"), 0, float.Parse(random.Next(1000, 9999).ToString()) }; //0 en 2
+            float[] fltpln = { float.Parse("128"), float.Parse(random.Next(0, 10).ToString()), float.Parse("1"), float.Parse(random.Next(-90, 90).ToString()), float.Parse(random.Next(-90, 90).ToString()) };
+            List<float[]> testdatalist = new List<float[]>() { valueSpeed, machVertical, weather, controls, flapsBrakes, heading, latlonalt, throttle, coms, navs, navobs, transponder, fltpln };
+            enterAllDataValues(testdatalist);
+        }
     }
 }

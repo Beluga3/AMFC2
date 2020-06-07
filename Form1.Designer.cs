@@ -106,6 +106,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
+            this.exitApplication = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar5)).BeginInit();
@@ -247,6 +249,7 @@
             // 
             // button3
             // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Location = new System.Drawing.Point(701, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
@@ -256,6 +259,8 @@
             // 
             // button4
             // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Location = new System.Drawing.Point(464, 11);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(231, 23);
@@ -265,6 +270,7 @@
             // 
             // button5
             // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button5.Location = new System.Drawing.Point(782, 36);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(22, 25);
@@ -275,6 +281,7 @@
             // 
             // button6
             // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button6.Location = new System.Drawing.Point(782, 67);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(22, 25);
@@ -285,6 +292,7 @@
             // 
             // panel8
             // 
+            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel8.Controls.Add(this.labelAileronpos2);
             this.panel8.Controls.Add(this.trackBar6);
@@ -403,6 +411,7 @@
             // 
             // panel12
             // 
+            this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel12.Controls.Add(this.trackBar10);
             this.panel12.Controls.Add(this.labelFlapsR);
@@ -433,6 +442,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -470,6 +481,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(44, 352);
             this.label1.Name = "label1";
@@ -479,6 +491,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(190, 352);
             this.label2.Name = "label2";
@@ -488,6 +501,7 @@
             // 
             // panel13
             // 
+            this.panel13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel13.Controls.Add(this.trackBar7);
             this.panel13.Controls.Add(this.labelSpeedbrakeL);
@@ -517,6 +531,7 @@
             // 
             // panel9
             // 
+            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.trackBar9);
             this.panel9.Controls.Add(this.labelFlapsL);
@@ -546,6 +561,7 @@
             // 
             // panel10
             // 
+            this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel10.Controls.Add(this.trackBar8);
             this.panel10.Controls.Add(this.labelSpeedbrakeR);
@@ -620,9 +636,10 @@
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.Location = new System.Drawing.Point(13, 486);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(323, 23);
+            this.button2.Size = new System.Drawing.Size(175, 23);
             this.button2.TabIndex = 45;
             this.button2.Text = "start + retrieve";
             this.button2.UseVisualStyleBackColor = true;
@@ -694,6 +711,7 @@
             // 
             // panel7
             // 
+            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.labelComfrequency);
             this.panel7.Location = new System.Drawing.Point(44, 378);
@@ -703,6 +721,7 @@
             // 
             // panel11
             // 
+            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel11.Controls.Add(this.labelComstandby);
             this.panel11.Location = new System.Drawing.Point(193, 378);
@@ -712,6 +731,7 @@
             // 
             // panel14
             // 
+            this.panel14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel14.Controls.Add(this.labelNavfrequency);
             this.panel14.Location = new System.Drawing.Point(44, 414);
@@ -721,6 +741,7 @@
             // 
             // panel15
             // 
+            this.panel15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel15.Controls.Add(this.labelNavstandby);
             this.panel15.Location = new System.Drawing.Point(193, 414);
@@ -730,6 +751,7 @@
             // 
             // panel16
             // 
+            this.panel16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel16.Controls.Add(this.labelNAVOBS);
             this.panel16.Location = new System.Drawing.Point(12, 450);
@@ -811,6 +833,7 @@
             // 
             // buttonComUp
             // 
+            this.buttonComUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonComUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonComUp.Location = new System.Drawing.Point(10, 377);
             this.buttonComUp.Name = "buttonComUp";
@@ -821,6 +844,7 @@
             // 
             // buttonComDown
             // 
+            this.buttonComDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonComDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonComDown.Location = new System.Drawing.Point(10, 391);
             this.buttonComDown.Name = "buttonComDown";
@@ -831,6 +855,7 @@
             // 
             // buttonNavUp
             // 
+            this.buttonNavUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonNavUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNavUp.Location = new System.Drawing.Point(10, 414);
             this.buttonNavUp.Name = "buttonNavUp";
@@ -841,6 +866,7 @@
             // 
             // buttonNavDown
             // 
+            this.buttonNavDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonNavDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNavDown.Location = new System.Drawing.Point(10, 427);
             this.buttonNavDown.Name = "buttonNavDown";
@@ -851,6 +877,7 @@
             // 
             // buttonComSwitch
             // 
+            this.buttonComSwitch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonComSwitch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonComSwitch.Location = new System.Drawing.Point(331, 377);
             this.buttonComSwitch.Name = "buttonComSwitch";
@@ -861,6 +888,7 @@
             // 
             // buttonNavSwitch
             // 
+            this.buttonNavSwitch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonNavSwitch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNavSwitch.Location = new System.Drawing.Point(331, 413);
             this.buttonNavSwitch.Name = "buttonNavSwitch";
@@ -871,6 +899,7 @@
             // 
             // label13
             // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(320, 352);
             this.label13.Name = "label13";
@@ -880,6 +909,7 @@
             // 
             // label14
             // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(329, 455);
             this.label14.Name = "label14";
@@ -889,12 +919,35 @@
             // 
             // button7
             // 
+            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button7.Location = new System.Drawing.Point(810, 486);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(378, 23);
             this.button7.TabIndex = 76;
             this.button7.Text = "open settings";
             this.button7.UseVisualStyleBackColor = true;
+            // 
+            // exitApplication
+            // 
+            this.exitApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.exitApplication.Location = new System.Drawing.Point(332, 486);
+            this.exitApplication.Name = "exitApplication";
+            this.exitApplication.Size = new System.Drawing.Size(34, 23);
+            this.exitApplication.TabIndex = 77;
+            this.exitApplication.Text = "X";
+            this.exitApplication.UseVisualStyleBackColor = true;
+            this.exitApplication.Click += new System.EventHandler(this.exitApplication_Click);
+            // 
+            // button8
+            // 
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button8.Location = new System.Drawing.Point(193, 486);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(143, 23);
+            this.button8.TabIndex = 78;
+            this.button8.Text = "test system";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // Form1
             // 
@@ -903,6 +956,8 @@
             this.BackgroundImage = global::AMFC2.Properties.Resources.sky;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1200, 521);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.exitApplication);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -1070,6 +1125,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button exitApplication;
+        private System.Windows.Forms.Button button8;
     }
 }
 
