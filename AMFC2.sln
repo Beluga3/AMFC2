@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMFC2", "AMFC2.csproj", "{19A181E9-8433-4F13-A32E-D85C1C50D4DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19A181E9-8433-4F13-A32E-D85C1C50D4DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19A181E9-8433-4F13-A32E-D85C1C50D4DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19A181E9-8433-4F13-A32E-D85C1C50D4DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19A181E9-8433-4F13-A32E-D85C1C50D4DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE4DA109-6B96-4C78-BDB1-A8CF471F6B37}
+	EndGlobalSection
+EndGlobal
