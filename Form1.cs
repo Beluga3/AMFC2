@@ -234,21 +234,35 @@ namespace AMFC2
             labelElevatorpos1.Invoke((MethodInvoker)(() => labelElevatorpos1.Text = FDAL.elevatorPos));
             //labelElevatorpos2.Invoke((MethodInvoker)(() => labelElevatorpos2.Text = FDAL.elevatorPos));
             labelAileronpos1.Invoke((MethodInvoker)(() => labelAileronpos1.Text = FDAL.aileronPos));
-            labelAileronpos2.Invoke((MethodInvoker)(() => labelAileronpos2.Text = FDAL.aileronPos)); //moet wss inverted worden
+            labelAileronpos2.Invoke((MethodInvoker)(() => labelAileronpos2.Text = invertValue(FDAL.aileronPos))); //moet wss inverted worden
             labelNwheelpos.Invoke((MethodInvoker)(() => labelNwheelpos.Text = FDAL.nosewheelPos));
             labelSpeedbrakeL.Invoke((MethodInvoker)(() => labelSpeedbrakeL.Text = FDAL.speedbrakePos));
             labelSpeedbrakeR.Invoke((MethodInvoker)(() => labelSpeedbrakeR.Text = FDAL.speedbrakePos));
             labelFlapsL.Invoke((MethodInvoker)(() => labelFlapsL.Text = FDAL.flapPos));
-            labelFlapsR.Invoke((MethodInvoker)(() => labelFlapsR.Text = FDAL.flapPos)); //moet wss inverted worden
+            labelFlapsR.Invoke((MethodInvoker)(() => labelFlapsR.Text = FDAL.flapPos));
             trackBar4.Invoke((MethodInvoker)(() => trackBar4.Value = Int32.Parse(FDAL.elevatorPos)));
             trackBar2.Invoke((MethodInvoker)(() => trackBar2.Value = Int32.Parse(FDAL.nosewheelPos)));
             trackBar3.Invoke((MethodInvoker)(() => trackBar3.Value = Int32.Parse(FDAL.rudderPos)));
             trackBar5.Invoke((MethodInvoker)(() => trackBar5.Value = Int32.Parse(FDAL.aileronPos)));
-            trackBar6.Invoke((MethodInvoker)(() => trackBar6.Value = Int32.Parse(FDAL.aileronPos))); //moet wss inverted worden
+            trackBar6.Invoke((MethodInvoker)(() => trackBar6.Value = Int32.Parse(invertValue(FDAL.aileronPos)))); //moet wss inverted worden
             trackBar7.Invoke((MethodInvoker)(() => trackBar7.Value = Int32.Parse(FDAL.speedbrakePos)));
             trackBar8.Invoke((MethodInvoker)(() => trackBar8.Value = Int32.Parse(FDAL.speedbrakePos)));
             trackBar9.Invoke((MethodInvoker)(() => trackBar9.Value = Int32.Parse(FDAL.flapPos)));
             trackBar10.Invoke((MethodInvoker)(() => trackBar10.Value = Int32.Parse(FDAL.flapPos)));
+        }
+
+        public string invertValue(string value)
+        {
+            string response;
+            if (value.StartsWith("-"))
+            {
+                response = value.Remove(0, 1);
+            }
+            else
+            {
+                response = "-" + value;
+            }
+            return (response);
         }
 
         private void exitApplication_Click(object sender, EventArgs e)
