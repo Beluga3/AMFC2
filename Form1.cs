@@ -25,7 +25,7 @@ namespace AMFC2
         int mapzoom = 11;
 
         private System.Threading.Timer threadingTimer; //<<Deze ook renamen naar threadingTimer als line 'testtimer = ...' uncommented wordt.
-        //private System.Threading.Timer systemTestThread; //speciale thread alleen bedoeld voor tijdelijke system test
+        private System.Threading.Timer systemTestThread; //speciale thread alleen bedoeld voor tijdelijke system test
 
         public Form1()
         {
@@ -64,18 +64,51 @@ namespace AMFC2
 
         }
 
-        public void updateGmap()
+        public void updateGmap()        //deze moet invoked worden omdat het geupdate moet worden vanuit een aparte thread
         {
             //gmap
             int forwardHeading = Int32.Parse(FDAL.headingMagnetic);
             //van het vliegtuig altijd naar boven op de kaart wordt weergegeven
-            gmap.MapProvider = GMap.NET.MapProviders.OpenStreetMapProvider.Instance;
-            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
+            gmap.MapProvider = GMap.NET.MapProviders.OpenStreetMapProvider.Instance;    
+            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;              
             double latitude = Convert.ToDouble(FDAL.latitudeDegrees);
             double longitude = Convert.ToDouble(FDAL.longitudeDegrees);
-            gmap.Position = new GMap.NET.PointLatLng(latitude, longitude);
-            gmap.Zoom = mapzoom;
-            gmap.Bearing = forwardHeading;
+            //gmap.Position = new GMap.NET.PointLatLng(latitude, longitude);            //dit is niet thread-safe. daarom vervangen in onderstaande functie
+            gmap.Zoom = mapzoom;                                                        //mag blijven staan omdat dit op de main-thread geregeld wordt
+            //gmap.Bearing = forwardHeading;                                            //ook niet thread-safe, daarom vervangen in onderstaande functie
+
+            GMap.NET.PointLatLng delegateData = new GMap.NET.PointLatLng(latitude, longitude);
+            setLocationThreadsafe(gmap, delegateData);                                  //wel thread-safe
+            setMapHeadingThreadsafe(gmap, forwardHeading);                              //wel thread-safe
+        }
+
+        //Functies om gmap veilig te kunnen updaten (threadsafe)
+        private delegate void gmapLocationDelegateHandler(Control control, GMap.NET.PointLatLng data, string propertyName = "Position");
+
+        public static void setLocationThreadsafe(Control control, GMap.NET.PointLatLng data, string propertyName = "Position")
+        {
+            if (control.InvokeRequired)
+            {
+                control.Invoke(new gmapLocationDelegateHandler(setLocationThreadsafe), new object[] { control, propertyName, data });
+            }
+            else
+            {
+                control.GetType().InvokeMember(propertyName, System.Reflection.BindingFlags.SetProperty, null, control, new object[] { data });
+            }
+        }
+
+        private delegate void gmapBearingDelegateHandler(Control control, int heading, string propertyName = "Bearing");
+
+        public static void setMapHeadingThreadsafe(Control control, int heading, string propertyName = "Bearing")
+        {
+            if (control.InvokeRequired)
+            {
+                control.Invoke(new gmapBearingDelegateHandler(setMapHeadingThreadsafe), new object[] { control, propertyName, heading });
+            }
+            else
+            {
+                control.GetType().InvokeMember(propertyName, System.Reflection.BindingFlags.SetProperty, null, control, new object[] { heading });
+            }
         }
 
         private void mapZoomIn_Click(object sender, EventArgs e)
