@@ -28,6 +28,11 @@ namespace AMFC2
 
         public Form1()
         {
+            Activate();
+            WindowState = FormWindowState.Maximized;
+            FormBorderStyle = FormBorderStyle.None;
+            TopMost = true;
+            //Hiermee is het venster op volledig scherm gezet
             //refreshrate = 1000; //milliseconden tot volgende refresh van gegevens
             InitializeComponent();
             //label4.Text = trackBar1.Value.ToString(); //niet echt nodig
@@ -236,6 +241,12 @@ namespace AMFC2
             trackBar8.Invoke((MethodInvoker)(() => trackBar8.Value = Int32.Parse(FDAL.speedbrakePos)));
             trackBar9.Invoke((MethodInvoker)(() => trackBar9.Value = Int32.Parse(FDAL.flapPos)));
             trackBar10.Invoke((MethodInvoker)(() => trackBar10.Value = Int32.Parse(FDAL.flapPos)));
+        }
+
+        private void exitApplication_Click(object sender, EventArgs e)
+        {
+            //afsluiten applicatie
+            Application.Exit();
         }
     }
 }

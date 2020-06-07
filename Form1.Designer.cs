@@ -106,6 +106,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
+            this.exitApplication = new System.Windows.Forms.Button();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar5)).BeginInit();
@@ -925,6 +926,17 @@
             this.button7.Text = "open settings";
             this.button7.UseVisualStyleBackColor = true;
             // 
+            // exitApplication
+            // 
+            this.exitApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.exitApplication.Location = new System.Drawing.Point(332, 486);
+            this.exitApplication.Name = "exitApplication";
+            this.exitApplication.Size = new System.Drawing.Size(34, 23);
+            this.exitApplication.TabIndex = 77;
+            this.exitApplication.Text = "X";
+            this.exitApplication.UseVisualStyleBackColor = true;
+            this.exitApplication.Click += new System.EventHandler(this.exitApplication_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -932,6 +944,7 @@
             this.BackgroundImage = global::AMFC2.Properties.Resources.sky;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1200, 521);
+            this.Controls.Add(this.exitApplication);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -1099,6 +1112,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button exitApplication;
     }
 }
 
