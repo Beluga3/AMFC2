@@ -107,6 +107,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
             this.exitApplication = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar5)).BeginInit();
@@ -638,7 +639,7 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.Location = new System.Drawing.Point(13, 486);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(323, 23);
+            this.button2.Size = new System.Drawing.Size(175, 23);
             this.button2.TabIndex = 45;
             this.button2.Text = "start + retrieve";
             this.button2.UseVisualStyleBackColor = true;
@@ -937,6 +938,17 @@
             this.exitApplication.UseVisualStyleBackColor = true;
             this.exitApplication.Click += new System.EventHandler(this.exitApplication_Click);
             // 
+            // button8
+            // 
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button8.Location = new System.Drawing.Point(193, 486);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(143, 23);
+            this.button8.TabIndex = 78;
+            this.button8.Text = "test system";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -944,6 +956,7 @@
             this.BackgroundImage = global::AMFC2.Properties.Resources.sky;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1200, 521);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.exitApplication);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label14);
@@ -1113,6 +1126,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button exitApplication;
+        private System.Windows.Forms.Button button8;
     }
 }
 

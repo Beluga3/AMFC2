@@ -25,6 +25,7 @@ namespace AMFC2
         int mapzoom = 11;
 
         private System.Threading.Timer threadingTimer; //<<Deze ook renamen naar threadingTimer als line 'testtimer = ...' uncommented wordt.
+        //private System.Threading.Timer systemTestThread; //speciale thread alleen bedoeld voor tijdelijke system test
 
         public Form1()
         {
@@ -206,6 +207,13 @@ namespace AMFC2
             updateGmap(); //
         }
 
+        public void callFdalTest() //public async void callFdalTest(object state)
+        {
+            FDAL.simulateSytemTestdata();
+            updateAllUI();
+            updateGmap();
+        }
+
         //voor de grafische rendering van de gegevens zorgen
         public void updateAllUI() //om alle nieuwe gegevens weer uit de fdal te halen en in het window te plaatsen
         {
@@ -247,6 +255,12 @@ namespace AMFC2
         {
             //afsluiten applicatie
             Application.Exit();
+        }
+
+        private void button8_Click(object sender, EventArgs e) //system test button
+        {
+            //systemTestThread = new System.Threading.Timer(callFdalTest, 10, 1, refreshrate);
+            callFdalTest();
         }
     }
 }
