@@ -29,10 +29,10 @@ namespace AMFC2
 
         public Form1()
         {
-            //Activate();
-            //WindowState = FormWindowState.Maximized;
-            //FormBorderStyle = FormBorderStyle.None;
-            //TopMost = true;
+            Activate();
+            WindowState = FormWindowState.Maximized;
+            FormBorderStyle = FormBorderStyle.None;
+            TopMost = true;
             //Hiermee is het venster op volledig scherm gezet
             //refreshrate = 1000; //milliseconden tot volgende refresh van gegevens
             InitializeComponent();
