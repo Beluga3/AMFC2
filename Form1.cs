@@ -29,10 +29,10 @@ namespace AMFC2
 
         public Form1()
         {
-            Activate();
-            WindowState = FormWindowState.Maximized;
-            FormBorderStyle = FormBorderStyle.None;
-            TopMost = true;
+            //Activate();
+            //WindowState = FormWindowState.Maximized;
+            //FormBorderStyle = FormBorderStyle.None;
+            //TopMost = true;
             //Hiermee is het venster op volledig scherm gezet
             //refreshrate = 1000; //milliseconden tot volgende refresh van gegevens
             InitializeComponent();
@@ -74,22 +74,24 @@ namespace AMFC2
             double latitude = Convert.ToDouble(FDAL.latitudeDegrees);
             double longitude = Convert.ToDouble(FDAL.longitudeDegrees);
             //gmap.Position = new GMap.NET.PointLatLng(latitude, longitude);            //dit is niet thread-safe. daarom vervangen in onderstaande functie
-            gmap.Zoom = mapzoom;                                                        //mag blijven staan omdat dit op de main-thread geregeld wordt
+            setMapZoomThreadsafe(gmap, mapzoom);                                           //WEL thread-safe
+            //gmap.Zoom = mapzoom;                                                        //NIET thread-safe
             //gmap.Bearing = forwardHeading;                                            //ook niet thread-safe, daarom vervangen in onderstaande functie
 
-            GMap.NET.PointLatLng delegateData = new GMap.NET.PointLatLng(latitude, longitude);
+            GMap.NET.PointLatLng delegateData = new GMap.NET.PointLatLng(latitude, longitude); //een gmap point maken van de FDAL latitude en longitude
             setLocationThreadsafe(gmap, delegateData);                                  //wel thread-safe
             setMapHeadingThreadsafe(gmap, forwardHeading);                              //wel thread-safe
         }
 
         //Functies om gmap veilig te kunnen updaten (threadsafe)
-        private delegate void gmapLocationDelegateHandler(Control control, GMap.NET.PointLatLng data, string propertyName = "Position");
-
-        public static void setLocationThreadsafe(Control control, GMap.NET.PointLatLng data, string propertyName = "Position")
+        private delegate void gmapLocationDelegateHandler(GMap.NET.WindowsForms.GMapControl control, GMap.NET.PointLatLng data, string propertyName = "Position");
+        //gmap heeft zelf ook een Invoke operator...
+        public static void setLocationThreadsafe(GMap.NET.WindowsForms.GMapControl control, GMap.NET.PointLatLng data, string propertyName = "Position")
         {
             if (control.InvokeRequired)
             {
-                control.Invoke(new gmapLocationDelegateHandler(setLocationThreadsafe), new object[] { control, propertyName, data });
+                //control.Invoke(new gmapLocationDelegateHandler(setLocationThreadsafe), new object[] { control, propertyName, data });
+                control.Invoke((MethodInvoker)(() => control.Position = data));
             }
             else
             {
@@ -97,13 +99,14 @@ namespace AMFC2
             }
         }
 
-        private delegate void gmapBearingDelegateHandler(Control control, int heading, string propertyName = "Bearing");
+        private delegate void gmapBearingDelegateHandler(GMap.NET.WindowsForms.GMapControl control, int heading, string propertyName = "Bearing");
 
-        public static void setMapHeadingThreadsafe(Control control, int heading, string propertyName = "Bearing")
+        public static void setMapHeadingThreadsafe(GMap.NET.WindowsForms.GMapControl control, int heading, string propertyName = "Bearing")
         {
             if (control.InvokeRequired)
             {
-                control.Invoke(new gmapBearingDelegateHandler(setMapHeadingThreadsafe), new object[] { control, propertyName, heading });
+                //control.Invoke(new gmapBearingDelegateHandler(setMapHeadingThreadsafe), new object[] { control, propertyName, heading });
+                control.Invoke((MethodInvoker)(() => control.Bearing = heading));
             }
             else
             {
@@ -111,16 +114,35 @@ namespace AMFC2
             }
         }
 
+        //delegate om de map-zoom te regelen
+        private delegate void gmapZoomDelegateHandler(GMap.NET.WindowsForms.GMapControl control, int zoom, string propertyName = "Zoom");
+        public static void setMapZoomThreadsafe(GMap.NET.WindowsForms.GMapControl control, int zoom, string propertyName = "Zoom")
+        {
+            if (control.InvokeRequired)
+            {
+                //control.Invoke(new gmapZoomDelegateHandler(setMapZoomThreadsafe), new object[] { control, propertyName, zoom});
+                control.Invoke((MethodInvoker)(() => control.Zoom = zoom));
+            }
+            else
+            {
+                control.GetType().InvokeMember(propertyName, System.Reflection.BindingFlags.SetProperty, null, control, new object[] { zoom });
+            }
+        }
+
         private void mapZoomIn_Click(object sender, EventArgs e)
         {
-            gmap.Zoom += 1;
+            //gmap.Zoom += 1;
+            mapzoom += 1;
+            setMapZoomThreadsafe(gmap, mapzoom);
         }
 
         private void mapZoomOut_Click(object sender, EventArgs e)
         {
-            if (gmap.Zoom > 1)
+            if (mapzoom > 1)
             {
-                gmap.Zoom -= 1;
+                //gmap.Zoom -= 1;
+                mapzoom -= 1;
+                setMapZoomThreadsafe(gmap, mapzoom);
             }
         }
 
@@ -240,9 +262,9 @@ namespace AMFC2
             updateGmap(); //
         }
 
-        public void callFdalTest() //public async void callFdalTest(object state)
+        public async void callFdalTest(object state) //public void callFdalTest()
         {
-            FDAL.simulateSytemTestdata();
+            FDAL.simulateSystemTestdata();
             updateAllUI();
             updateGmap();
         }
@@ -306,8 +328,8 @@ namespace AMFC2
 
         private void button8_Click(object sender, EventArgs e) //system test button
         {
-            //systemTestThread = new System.Threading.Timer(callFdalTest, 10, 1, refreshrate);
-            callFdalTest();
+            systemTestThread = new System.Threading.Timer(callFdalTest, 10, 1, refreshrate);
+            //callFdalTest();
         }
     }
 }

@@ -228,7 +228,7 @@ namespace AMFC2
             enterAllDataValues(unpacked);
         }
 
-        public void simulateSytemTestdata() //alleen voor testen van software, dus zonder verbinding met xplane
+        public void simulateSystemTestdata() //alleen voor testen van software, dus zonder verbinding met xplane
         {
             Random random = new Random();
             float[] valueSpeed = { float.Parse("3"), float.Parse(random.Next(1, 250).ToString()), 0, 0, float.Parse(random.Next(1, 250).ToString())}; //speed gebruikt 0, 1 en 4
