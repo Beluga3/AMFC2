@@ -108,6 +108,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.exitApplication = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.IpAddressLabel = new System.Windows.Forms.Label();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar5)).BeginInit();
@@ -949,6 +950,15 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // IpAddressLabel
+            // 
+            this.IpAddressLabel.AutoSize = true;
+            this.IpAddressLabel.Location = new System.Drawing.Point(149, 311);
+            this.IpAddressLabel.Name = "IpAddressLabel";
+            this.IpAddressLabel.Size = new System.Drawing.Size(76, 17);
+            this.IpAddressLabel.TabIndex = 79;
+            this.IpAddressLabel.Text = "IP-address";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -956,6 +966,7 @@
             this.BackgroundImage = global::AMFC2.Properties.Resources.sky;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1200, 521);
+            this.Controls.Add(this.IpAddressLabel);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.exitApplication);
             this.Controls.Add(this.button7);
@@ -1127,6 +1138,7 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button exitApplication;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Label IpAddressLabel;
     }
 }
 

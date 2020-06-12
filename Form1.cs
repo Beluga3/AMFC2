@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
-
+using System.Net;
 
 namespace AMFC2
 {
@@ -40,7 +40,6 @@ namespace AMFC2
             //de 'read data' functie uitvoeren, 1 seconde wachten
             //de 'send data functie moet aangeroepen worden vanuit een button-press
 
-
             //timer instellen en read-sequence starten
             //System.Threading.Timer threadingTimer = new System.Threading.Timer(callFdalUpdate, 10, 1, refreshrate); //als volgende regel uncommented, deze regel wel commenten!
  //>>           //threadingTimer = new System.Threading.Timer(callFdalUpdate, 10, 1, refreshrate); //<<deze uncommenten en renamen naar threadingTimer om zo het 'garbage-collecten' van het systeem naar dit soort functies op te lossen
@@ -49,9 +48,44 @@ namespace AMFC2
 
         }
 
+        public void displayIP()
+        {
+            bool errorRaised = false;
+            try
+            {
+                //lokale ip-adres zichtbaar maken
+                var host = Dns.GetHostEntry(Dns.GetHostName());
+                foreach (var ip in host.AddressList)
+                {
+                    if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                    {
+                        IpAddressLabel.Invoke((MethodInvoker)(() => IpAddressLabel.Text = ip.ToString()));
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Niet aangesloten aan een netwerk");
+                errorRaised = true;
+            }
+            /*
+            try //public ip-adres proberen te achterhalen
+            {
+
+            }
+            catch (Exception)
+            {
+                if (!errorRaised) //alleen melding weergeven als de client wel toegang heeft tot lokaal netwerk
+                {
+                    MessageBox.Show("Geen internettoegang");
+                }
+            }
+            */
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            displayIP(); //het IP-adres van deze client weergeven zodat dat in xplane ingevoerd kan worden
         }
 
         private void startProcesstimer(object sender, EventArgs e) //wanneer op de knop start + retrieve word geklikt

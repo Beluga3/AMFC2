@@ -1,0 +1,37 @@
+>>  int portNr = 49003
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Net;
+using System.Net.Sockets;
+
+byte[] data = new byte[1024];
+IPEndPoint ipep = new IPEndPoint(IPAddress.Any, porntNr);
+UdpClient newsock = new UdpClient(ipep);
+IPEndPoint sender = new IPEndPoint (IPAddress.Any, 0);
+data = newsock.Receive(ref sender);
+for (int index = 0; index < data.Length; index++){
+	Console.Write("{0},", data[index]);
+	}
+
+
+==============================
+Info over het 'flight legs' gedeelte:
+	https://forums.x-plane.org/index.php?/forums/topic/174999-info-on-fms-flight-leg-type-field-via-udp-dsel-128/
+Info over alle mogelijke gegevens:
+	https://www.x-plane.com/kb/data-set-output-table/
+
+
+
+List<byte[]> fullUdp = listenToUDPUntilStop(xplaneport);
+List<float[]> unpackedUdp = UDPunpackAll(fullUdp);
+enterDatavalues(unpackedUdp)
+	
+
+
+
+
+
